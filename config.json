@@ -1,6 +1,6 @@
 {
 	"auths": {
-		"https://index.docker.io/v1/": {
+		"https://ghcr.io/v1/": {
 			"auth": "PLACEHOLDER"
 		}
 	}
