@@ -1,6 +1,6 @@
 {
 	"auths": {
-		"https://ghcr.io/v1/": {
+		"https://ghcr.io/v2/": {
 			"auth": "PLACEHOLDER"
 		}
 	}
