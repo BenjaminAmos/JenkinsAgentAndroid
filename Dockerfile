@@ -4,6 +4,9 @@ USER root
 
 ENV ANDROID_SDK_ROOT=/opt/android-sdk
 
+RUN apt-get install ruby ruby-bundler
+RUN gem install fastlane
+
 RUN mkdir -p /opt/android-sdk/cmdline-tools \
 && /busybox/wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip \
 && /busybox/unzip commandlinetools-linux-7583922_latest.zip -d /opt/android-sdk/cmdline-tools \
