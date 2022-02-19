@@ -17,4 +17,8 @@ RUN mkdir -p /opt/android-sdk/cmdline-tools \
 && /opt/android-sdk/cmdline-tools/latest/bin/sdkmanager "build-tools;29.0.2" "platforms;android-28" \
 && chown -R jenkins:jenkins /opt/android-sdk
 
+RUN apt-get purge -y ruby-dev build-essential && apt-get autoremove -y
+
 USER jenkins
+
+RUN fastlane help
