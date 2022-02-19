@@ -4,7 +4,7 @@ USER root
 
 ENV ANDROID_SDK_ROOT=/opt/android-sdk
 
-RUN apt-get install ruby ruby-bundler
+RUN apt-get update && apt-get install ruby ruby-bundler
 RUN gem install fastlane
 
 RUN mkdir -p /opt/android-sdk/cmdline-tools \
