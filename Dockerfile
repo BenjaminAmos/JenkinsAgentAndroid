@@ -4,8 +4,9 @@ USER root
 
 ENV ANDROID_SDK_ROOT=/opt/android-sdk
 
-RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler build-essential
-RUN gem install --no-document fastlane
+RUN apt-get update && apt-get install -y ruby ruby-dev ruby-bundler build-essential \
+&& gem install --no-document fastlane \
+&& apt-get purge -y ruby-dev build-essential && apt-get autoremove -y
 
 RUN mkdir -p /opt/android-sdk/cmdline-tools \
 && /busybox/wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip \
@@ -16,8 +17,6 @@ RUN mkdir -p /opt/android-sdk/cmdline-tools \
 && printf "\n24333f8a63b6825ea9c5514f83c2829b004d1fee" > /opt/android-sdk/licenses/android-sdk-license \
 && /opt/android-sdk/cmdline-tools/latest/bin/sdkmanager "build-tools;29.0.2" "platforms;android-28" \
 && chown -R jenkins:jenkins /opt/android-sdk
-
-RUN apt-get purge -y ruby-dev build-essential && apt-get autoremove -y
 
 USER jenkins
 
